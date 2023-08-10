@@ -5,7 +5,7 @@
     <AssemblyName>SharpGLTF.Core</AssemblyName>
     <RootNamespace>SharpGLTF</RootNamespace>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <Platforms>AnyCPU;x64</Platforms>
+    <Platforms>x64</Platforms>
   </PropertyGroup>
 
   <PropertyGroup>
