@@ -385,6 +385,11 @@ namespace SharpGLTF.Geometry.VertexTypes
         /// <inheritdoc/>
         public void ApplyTransform(in Matrix4x4 xform)
         {
+            if (xform.IsIdentity)
+            {
+                return;
+            }
+
             Position = Vector3.Transform(Position, xform);
             Normal = Vector3.Normalize(Vector3.TransformNormal(Normal, xform));
 
