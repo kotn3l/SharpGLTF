@@ -92,27 +92,27 @@ namespace SharpGLTF.Geometry.VertexTypes
             Append(VertexPreprocessorLambdas.SanitizeVertexSkinning);
         }
 
-        public bool PreprocessVertex(ref VertexBuilder<TvG, TvM, TvS> vertex)
+        public bool PreprocessVertex(ref VertexBuilder<TvG?, TvM?, TvS?> vertex)
         {
             foreach (var f in _GeometryPreprocessor)
             {
                 var g = f(vertex.Geometry);
-                if (!g.HasValue) return false;
-                vertex.Geometry = g.Value;
+                if (g is null) return false;
+                vertex.Geometry = g;
             }
 
             foreach (var f in _MaterialPreprocessor)
             {
                 var m = f(vertex.Material);
-                if (!m.HasValue) return false;
-                vertex.Material = m.Value;
+                if (m is null) return false;
+                vertex.Material = m;
             }
 
             foreach (var f in _SkinningPreprocessor)
             {
                 var s = f(vertex.Skinning);
-                if (!s.HasValue) return false;
-                vertex.Skinning = s.Value;
+                if (s is null) return false;
+                vertex.Skinning = s;
             }
 
             return true;

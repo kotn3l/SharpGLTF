@@ -152,13 +152,13 @@ namespace SharpGLTF.Geometry.VertexTypes
         {
             var p = vertex.GetPosition();
 
-            if (!p._IsFinite()) return null;
+            if (!p._IsFinite()) return default;
 
             if (vertex.TryGetNormal(out Vector3 n))
             {
                 if (!n._IsFinite()) n = p;
                 if (n == Vector3.Zero) n = p;
-                if (n == Vector3.Zero) return null;
+                if (n == Vector3.Zero) return default;
 
                 var l = n.Length();
                 if (l < 0.99f || l > 0.01f) vertex.SetNormal(Vector3.Normalize(n));
@@ -166,10 +166,10 @@ namespace SharpGLTF.Geometry.VertexTypes
 
             if (vertex.TryGetTangent(out Vector4 tw))
             {
-                if (!tw._IsFinite()) return null;
+                if (!tw._IsFinite()) return default;
 
                 var t = new Vector3(tw.X, tw.Y, tw.Z);
-                if (t == Vector3.Zero) return null;
+                if (t == Vector3.Zero) return default;
 
                 if (tw.W > 0) tw.W = 1;
                 if (tw.W < 0) tw.W = -1;
