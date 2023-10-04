@@ -45,9 +45,9 @@ namespace SharpGLTF.Geometry
     /// </list>
     /// </typeparam>
     public class MeshBuilder<TMaterial, TvG, TvM, TvS> : BaseBuilder, IMeshBuilder<TMaterial>, ICloneable
-        where TvG : struct, IVertexGeometry
-        where TvM : struct, IVertexMaterial
-        where TvS : struct, IVertexSkinning
+        where TvG : IVertexGeometry
+        where TvM : IVertexMaterial
+        where TvS : IVertexSkinning
     {
         #region lifecycle
 
@@ -258,9 +258,9 @@ namespace SharpGLTF.Geometry
 
     /// <inheritdoc/>
     public class MeshBuilder<TvG, TvM, TvS> : MeshBuilder<Materials.MaterialBuilder, TvG, TvM, TvS>
-        where TvG : struct, IVertexGeometry
-        where TvM : struct, IVertexMaterial
-        where TvS : struct, IVertexSkinning
+        where TvG : IVertexGeometry
+        where TvM : IVertexMaterial
+        where TvS : IVertexSkinning
     {
         public MeshBuilder(string name = null)
             : base(name) { }
@@ -268,8 +268,8 @@ namespace SharpGLTF.Geometry
 
     /// <inheritdoc/>
     public class MeshBuilder<TvG, TvM> : MeshBuilder<Materials.MaterialBuilder, TvG, TvM, VertexEmpty>
-        where TvG : struct, IVertexGeometry
-        where TvM : struct, IVertexMaterial
+        where TvG : IVertexGeometry
+        where TvM : IVertexMaterial
     {
         public MeshBuilder(string name = null)
             : base(name) { }
@@ -277,7 +277,7 @@ namespace SharpGLTF.Geometry
 
     /// <inheritdoc/>
     public class MeshBuilder<TvG> : MeshBuilder<Materials.MaterialBuilder, TvG, VertexEmpty, VertexEmpty>
-        where TvG : struct, IVertexGeometry
+        where TvG : IVertexGeometry
     {
         public MeshBuilder(string name = null)
             : base(name) { }

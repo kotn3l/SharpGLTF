@@ -5,14 +5,14 @@ using System.Text;
 
 namespace SharpGLTF.Geometry.VertexTypes
 {
-    public delegate TvG? VertexGeometryPreprocessor<TvG>(TvG arg)
-        where TvG : struct, IVertexGeometry;
+    public delegate TvG VertexGeometryPreprocessor<TvG>(TvG arg)
+        where TvG : IVertexGeometry;
 
-    public delegate TvM? VertexMaterialPreprocessor<TvM>(TvM arg)
-        where TvM : struct, IVertexMaterial;
+    public delegate TvM VertexMaterialPreprocessor<TvM>(TvM arg)
+        where TvM : IVertexMaterial;
 
-    public delegate TvS? VertexSkinningPreprocessor<TvS>(TvS arg)
-        where TvS : struct, IVertexSkinning;
+    public delegate TvS VertexSkinningPreprocessor<TvS>(TvS arg)
+        where TvS : IVertexSkinning;
 
     /// <summary>
     /// Represents a <see cref="VertexBuilder{TvG, TvM, TvS}"/> preprocessor used by <see cref="MeshBuilder{TMaterial, TvG, TvM, TvS}.VertexPreprocessor"/>
@@ -40,9 +40,9 @@ namespace SharpGLTF.Geometry.VertexTypes
     /// <see cref="VertexJoints8"/>.
     /// </typeparam>
     public sealed class VertexPreprocessor<TvG, TvM, TvS>
-        where TvG : struct, IVertexGeometry
-        where TvM : struct, IVertexMaterial
-        where TvS : struct, IVertexSkinning
+        where TvG : IVertexGeometry
+        where TvM : IVertexMaterial
+        where TvS : IVertexSkinning
     {
         #region data
 

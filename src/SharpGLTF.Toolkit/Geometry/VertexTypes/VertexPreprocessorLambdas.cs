@@ -23,8 +23,8 @@ namespace SharpGLTF.Geometry.VertexTypes
         /// <param name="vertex">the source <typeparamref name="TvG"/> vertex.</param>
         /// <returns>A sanitized <typeparamref name="TvG"/> vertex, or null if sanitization failed.</returns>
         /// <exception cref="ArgumentException">When the vertex is invalid.</exception>
-        public static TvG? ValidateVertexGeometry<TvG>(TvG vertex)
-            where TvG : struct, IVertexGeometry
+        public static TvG ValidateVertexGeometry<TvG>(TvG vertex)
+            where TvG : IVertexGeometry
         {
             var p = vertex.GetPosition();
             Guard.IsTrue(p._IsFinite(), "Position", "Values are not finite.");
@@ -58,8 +58,8 @@ namespace SharpGLTF.Geometry.VertexTypes
         /// </typeparam>
         /// <param name="vertex">the source <typeparamref name="TvM"/> vertex.</param>
         /// <returns>A sanitized <typeparamref name="TvM"/> vertex, or null if sanitization failed.</returns>
-        public static TvM? ValidateVertexMaterial<TvM>(TvM vertex)
-            where TvM : struct, IVertexMaterial
+        public static TvM ValidateVertexMaterial<TvM>(TvM vertex)
+            where TvM : IVertexMaterial
         {
             for (int i = 0; i < vertex.MaxColors; ++i)
             {
@@ -94,8 +94,8 @@ namespace SharpGLTF.Geometry.VertexTypes
         /// </typeparam>
         /// <param name="vertex">the source <typeparamref name="TvS"/> vertex.</param>
         /// <returns>A sanitized <typeparamref name="TvS"/> vertex, or null if sanitization failed.</returns>
-        public static TvS? ValidateVertexSkinning<TvS>(TvS vertex)
-            where TvS : struct, IVertexSkinning
+        public static TvS ValidateVertexSkinning<TvS>(TvS vertex)
+            where TvS : IVertexSkinning
         {
             // validation must ensure that:
             // - every joint is unique
@@ -147,8 +147,8 @@ namespace SharpGLTF.Geometry.VertexTypes
         /// </typeparam>
         /// <param name="vertex">the source <typeparamref name="TvG"/> vertex.</param>
         /// <returns>A sanitized <typeparamref name="TvG"/> vertex, or null if sanitization failed.</returns>
-        public static TvG? SanitizeVertexGeometry<TvG>(TvG vertex)
-            where TvG : struct, IVertexGeometry
+        public static TvG SanitizeVertexGeometry<TvG>(TvG vertex)
+            where TvG : IVertexGeometry
         {
             var p = vertex.GetPosition();
 
@@ -196,8 +196,8 @@ namespace SharpGLTF.Geometry.VertexTypes
         /// </typeparam>
         /// <param name="vertex">the source <typeparamref name="TvM"/> vertex.</param>
         /// <returns>A sanitized <typeparamref name="TvM"/> vertex, or null if sanitization failed.</returns>
-        public static TvM? SanitizeVertexMaterial<TvM>(TvM vertex)
-            where TvM : struct, IVertexMaterial
+        public static TvM SanitizeVertexMaterial<TvM>(TvM vertex)
+            where TvM : IVertexMaterial
         {
             for (int i = 0; i < vertex.MaxColors; ++i)
             {
@@ -232,8 +232,8 @@ namespace SharpGLTF.Geometry.VertexTypes
         /// </typeparam>
         /// <param name="vertex">the source <typeparamref name="TvS"/> vertex.</param>
         /// <returns>A sanitized <typeparamref name="TvS"/> vertex, or null if sanitization failed.</returns>
-        public static TvS? SanitizeVertexSkinning<TvS>(TvS vertex)
-            where TvS : struct, IVertexSkinning
+        public static TvS SanitizeVertexSkinning<TvS>(TvS vertex)
+            where TvS : IVertexSkinning
         {
             if (vertex.MaxBindings == 0) return vertex;
 

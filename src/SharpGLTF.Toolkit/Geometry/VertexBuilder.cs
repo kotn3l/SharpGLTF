@@ -74,9 +74,9 @@ namespace SharpGLTF.Geometry
     /// </typeparam>
     [System.Diagnostics.DebuggerDisplay("{_GetDebuggerDisplay(),nq}")]
     public partial struct VertexBuilder<TvG, TvM, TvS> : IVertexBuilder, IEquatable<VertexBuilder<TvG, TvM, TvS>>
-        where TvG : struct, IVertexGeometry
-        where TvM : struct, IVertexMaterial
-        where TvS : struct, IVertexSkinning
+        where TvG : IVertexGeometry
+        where TvM : IVertexMaterial
+        where TvS : IVertexSkinning
     {
         #region debug
 

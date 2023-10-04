@@ -38,8 +38,8 @@ namespace SharpGLTF.Geometry
     /// <typeparam name="TvG">The vertex fragment type with Position, Normal and Tangent.</typeparam>
     /// <typeparam name="TvM">The vertex fragment type with Color0, Color1, TexCoord0, TexCoord1.</typeparam>
     class PrimitiveMorphTargetBuilder<TvG, TvM> : IPrimitiveMorphTargetReader
-        where TvG : struct, IVertexGeometry
-        where TvM : struct, IVertexMaterial
+        where TvG : IVertexGeometry
+        where TvM : IVertexMaterial
     {
         #region lifecycle
 
@@ -278,9 +278,9 @@ namespace SharpGLTF.Geometry
     /// a displaced vertex, we must be sure we do so for all instances we can find.
     /// </remarks>
     public sealed class MorphTargetBuilder<TMaterial, TvG, TvS, TvM> : IMorphTargetBuilder
-            where TvG : struct, IVertexGeometry
-            where TvM : struct, IVertexMaterial
-            where TvS : struct, IVertexSkinning
+            where TvG : IVertexGeometry
+            where TvM : IVertexMaterial
+            where TvS : IVertexSkinning
     {
         #region lifecycle
 

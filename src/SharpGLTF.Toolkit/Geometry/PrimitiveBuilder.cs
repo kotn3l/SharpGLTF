@@ -39,9 +39,9 @@ namespace SharpGLTF.Geometry
     /// - <see cref="VertexJoints8"/><br/>
     /// </typeparam>
     public abstract class PrimitiveBuilder<TMaterial, TvG, TvM, TvS> : IPrimitiveBuilder, IPrimitiveReader<TMaterial>
-        where TvG : struct, IVertexGeometry
-        where TvM : struct, IVertexMaterial
-        where TvS : struct, IVertexSkinning
+        where TvG : IVertexGeometry
+        where TvM : IVertexMaterial
+        where TvS : IVertexSkinning
     {
         #region lifecycle
 
@@ -453,9 +453,9 @@ namespace SharpGLTF.Geometry
     /// <inheritdoc/>
     [System.Diagnostics.DebuggerDisplay("Points[{Points.Count}] {_Material}")]
     sealed class PointsPrimitiveBuilder<TMaterial, TvG, TvM, TvS> : PrimitiveBuilder<TMaterial, TvG, TvM, TvS>
-        where TvG : struct, IVertexGeometry
-        where TvM : struct, IVertexMaterial
-        where TvS : struct, IVertexSkinning
+        where TvG : IVertexGeometry
+        where TvM : IVertexMaterial
+        where TvS : IVertexSkinning
     {
         #region lifecycle
 
@@ -530,9 +530,9 @@ namespace SharpGLTF.Geometry
     /// <inheritdoc/>
     [System.Diagnostics.DebuggerDisplay("Lines[{Lines.Count}] {_Material}")]
     sealed class LinesPrimitiveBuilder<TMaterial, TvG, TvM, TvS> : PrimitiveBuilder<TMaterial, TvG, TvM, TvS>
-        where TvG : struct, IVertexGeometry
-        where TvM : struct, IVertexMaterial
-        where TvS : struct, IVertexSkinning
+        where TvG : IVertexGeometry
+        where TvM : IVertexMaterial
+        where TvS : IVertexSkinning
     {
         #region lifecycle
 
@@ -608,9 +608,9 @@ namespace SharpGLTF.Geometry
     /// <inheritdoc/>
     [System.Diagnostics.DebuggerDisplay("Triangles[{Triangles.Count}] {_Material}")]
     sealed class TrianglesPrimitiveBuilder<TMaterial, TvG, TvM, TvS> : PrimitiveBuilder<TMaterial, TvG, TvM, TvS>
-        where TvG : struct, IVertexGeometry
-        where TvM : struct, IVertexMaterial
-        where TvS : struct, IVertexSkinning
+        where TvG : IVertexGeometry
+        where TvM : IVertexMaterial
+        where TvS : IVertexSkinning
     {
         #region lifecycle
 
