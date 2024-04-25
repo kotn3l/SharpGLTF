@@ -1,8 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
-    <AssemblyName>SharpGLTF.Runtime</AssemblyName>
+    <TargetFramework>net8.0</TargetFramework>
+	  <LangVersion>12</LangVersion>
+	  <AssemblyName>SharpGLTF.Runtime</AssemblyName>
     <RootNamespace>SharpGLTF.Runtime</RootNamespace>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Platforms>x64</Platforms>
