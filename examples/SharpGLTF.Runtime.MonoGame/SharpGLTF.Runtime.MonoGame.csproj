@@ -5,6 +5,7 @@
     <RootNamespace>SharpGLTF.Runtime</RootNamespace>
     <LangVersion>8</LangVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,17 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   
   <PropertyGroup>
-    <TargetFrameworks>net471;net6.0;net8.0</TargetFrameworks>
+    <TargetFrameworks>net6.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
     <RootNamespace>SharpGLTF</RootNamespace>
     <LangVersion>latest</LangVersion>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="NUnit" Version="4.1.0" />
+    <PackageReference Include="nunit" Version="3.13.3" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="GltfValidator" Version="2.0.0-dev.3.8.202311262112" />    
-    <PackageReference Include="TestAttachments.NUnit" Version="4.0.0-Preview-20240102-0955" />    
+    <PackageReference Include="GltfValidator" Version="2.0.0-dev.3.8.202306260919" />    
+    <PackageReference Include="TestAttachments.NUnit" Version="3.0.0-Preview-20220721-1621" />    
   </ItemGroup>
 
   <ItemGroup>    

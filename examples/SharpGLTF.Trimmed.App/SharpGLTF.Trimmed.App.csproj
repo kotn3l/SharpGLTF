@@ -4,10 +4,9 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
     <PublishAot>true</PublishAot>
-    <RootNamespace>SharpGLTF</RootNamespace>
-  </PropertyGroup>
-
-  <!-- https://docs.microsoft.com/en-us/dotnet/core/deploying/trimming/prepare-libraries-for-trimming -->
+    <Platforms>x64</Platforms>
+    <RootNamespace>SharpGLTF</RootNamespace>	
+  </PropertyGroup>  
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\SharpGLTF.Core\SharpGLTF.Core.csproj" />
