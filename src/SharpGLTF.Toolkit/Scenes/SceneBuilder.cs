@@ -376,6 +376,25 @@ namespace SharpGLTF.Scenes
             return scene._Instances;
         }
 
+        /// <summary>
+        /// Copies the instances from <paramref name="scene"/> to this <see cref="SceneBuilder"/>
+        /// </summary>
+        /// <param name="scene">The source scene.</param>
+        /// <param name="sceneTransform">A transform to apply to <paramref name="scene"/> before addition.</param>
+        /// <returns>The instances copied from <paramref name="scene"/>.</returns>
+        public IReadOnlyList<InstanceBuilder> AddSceneNoCopy(SceneBuilder scene, Matrix4x4 sceneTransform)
+        {
+            Guard.NotNull(scene, nameof(scene));
+
+            M4X4FACTORY.GuardMatrix(nameof(sceneTransform), sceneTransform, M4X4FACTORY.MatrixCheck.WorldTransform);
+
+            scene.ApplyBasisTransform(sceneTransform);
+
+            this._Instances.AddRange(scene._Instances);
+
+            return scene._Instances;
+        }
+
         #endregion
     }
 }
