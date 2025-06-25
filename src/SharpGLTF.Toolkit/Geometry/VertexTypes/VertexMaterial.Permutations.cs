@@ -43,6 +43,14 @@ namespace SharpGLTF.Geometry.VertexTypes
             TexCoords = new List<Vector2>(texcoords);
         }
 
+        public DynamicVertexColorTexture(IEnumerable<Vector4> colors, IEnumerable<Vector2> texcoords)
+        {
+            /*MaxColors = colors.Count;
+            MaxTextCoords = texcoords.Count;*/
+            Colors = new List<Vector4>(colors);
+            TexCoords = new List<Vector2>(texcoords);
+        }
+
         #endregion
 
         #region data
