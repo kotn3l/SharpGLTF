@@ -1895,16 +1895,54 @@ namespace SharpGLTF.Geometry.VertexTypes
         internal VertexMaterialDelta(in DynamicVertexColorTexture rootVal, in DynamicVertexColorTexture morphVal) : this(Math.Max(rootVal.MaxColors, morphVal.MaxColors),
                                                                                                                          Math.Max(rootVal.MaxTextCoords, morphVal.MaxTextCoords))
         {
-            for (int i = 0; i < Math.Min(rootVal.MaxColors, morphVal.MaxColors); i++)
+            int minColors = Math.Min(rootVal.MaxColors, morphVal.MaxColors);
+            for (int i = 0; i < minColors; i++)
             {
                 ColorDeltas[i] = morphVal.Colors[i] - rootVal.Colors[i];
             }
-            for (int i = 0; i < Math.Min(rootVal.MaxTextCoords, morphVal.MaxTextCoords); i++)
+            
+            if (rootVal.MaxColors != morphVal.MaxColors)
+            {
+                if (rootVal.MaxColors > morphVal.MaxColors)
+                {
+                    for (int i = minColors; i < MaxColors; i++)
+                    {
+                        ColorDeltas[i] = Vector4.Zero - rootVal.Colors[i];
+                    }
+                }
+                else
+                {
+                    for (int i = minColors; i < MaxColors; i++)
+                    {
+                        ColorDeltas[i] = morphVal.Colors[i] - Vector4.Zero;
+                    }
+                }
+            }
+           
+
+            int minTexCoords = Math.Min(rootVal.MaxTextCoords, morphVal.MaxTextCoords);
+            for (int i = 0; i < minTexCoords; i++)
             {
                 TexCoordDeltas[i] = morphVal.TexCoords[i] - rootVal.TexCoords[i];
             }
+
+            if (rootVal.MaxTextCoords != morphVal.MaxTextCoords)
+            {
+                if (rootVal.MaxTextCoords > morphVal.MaxTextCoords)
+                {
+                    for (int i = minColors; i < MaxTextCoords; i++)
+                    {
+                        TexCoordDeltas[i] = Vector2.Zero - rootVal.TexCoords[i];
+                    }
+                }
+                else
+                {
+                    for (int i = minColors; i < MaxTextCoords; i++)
+                    {
+                        TexCoordDeltas[i] = morphVal.TexCoords[i] - Vector2.Zero;
+                    }
+                }
+            }
         }
     }
-
-    
 }
